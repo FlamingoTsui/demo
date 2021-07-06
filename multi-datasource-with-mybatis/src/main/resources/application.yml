@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+mapper:
+  style: camelhump
+  safe-delete: true
+  safe-update: true
+  identity: MYSQL
+  before: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  datasource:
+    foo:
+      jdbc-url: jdbc:mysql://localhost:3306/foo
+      username: root
+      password: 1234
+
+    bar:
+      jdbc-url: jdbc:mysql://localhost:3306/bar
+      username: root
+      password: 1234
