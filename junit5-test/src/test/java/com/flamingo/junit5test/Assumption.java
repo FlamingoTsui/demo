@@ -1,5 +1,6 @@
 package com.flamingo.junit5test;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
  * @author flamingo
  * @create 7/7/21 11:23 AM
  */
+@DisplayName("条件和假设示例")
 public class Assumption {
     @Test
     void assumeTrueTest() {
@@ -31,7 +33,7 @@ public class Assumption {
         //assumingThat 接受一个boolean值assumption，如果assumption为true，那么将会执行executable，否则不会执行，
         //但是assumingThat即使为false也不会影响后续代码的执行，他和assumeFalse和assumeTrue不同，assumingThat只
         //决定Executable是否执行，Executable是一个函数式接口，接受一个没有参数和返回值的方法。
-        assumingThat(false, () -> {
+        assumingThat(true, () -> {
             System.out.println("This will not be implemented.");
         });
 

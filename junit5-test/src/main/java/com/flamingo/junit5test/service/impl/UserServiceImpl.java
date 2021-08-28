@@ -5,6 +5,8 @@ import com.flamingo.junit5test.entity.UserDO;
 import com.flamingo.junit5test.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 /**
  * @author flamingo
  * @create 7/7/21 5:17 PM
@@ -19,22 +21,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Long add(UserDO userDO) {
-        return null;
+    public String signUp(String name, String passwd) {
+        UserDO user = userDao.findByName(name);
+        if (Objects.nonNull(user)) {
+            return "该用户已存在，请登录或重新注册";
+        } else {
+            UserDO newUser = UserDO.builder().name(name).password(passwd).build();
+            userDao.insert(newUser);
+            return name + "，欢迎使用";
+        }
     }
 
     @Override
-    public UserDO findById(Long id) {
-        return null;
-    }
-
-    @Override
-    public Long updateById(UserDO userDO) {
-        return null;
-    }
-
-    @Override
-    public Long deleteById(Long id) {
-        return null;
+    public String signIn(String name, String passwd) {
+        UserDO user = userDao.findByNameAndPasswd(name, passwd);
+        if (Objects.nonNull(user)) {
+            return name + "，欢迎回来";
+        } else {
+            return "用户名或密码不正确";
+        }
     }
 }

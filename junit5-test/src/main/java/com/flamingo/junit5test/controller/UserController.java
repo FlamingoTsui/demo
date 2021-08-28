@@ -31,8 +31,12 @@ public class UserController {
     }
 
     @PostMapping("/signUp")
-    public void signUp(@RequestBody UserDO userDO) {}
+    public String signUp(@RequestBody UserDO userDO) {
+        return userService.signUp(userDO.getName(), userDO.getPassword());
+    }
 
     @PostMapping("/signIn")
-    public void signIn(@RequestBody UserDO userDO) {}
+    public String signIn(@RequestBody UserDO userDO) {
+        return userService.signIn(userDO.getName(), userDO.getPassword());
+    }
 }

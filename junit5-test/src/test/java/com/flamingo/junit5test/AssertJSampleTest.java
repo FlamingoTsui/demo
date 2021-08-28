@@ -37,6 +37,6 @@ public class AssertJSampleTest {
         map.put("A", 1);
         map.put("B", 2);
         map.put("C", 3);
-        assertThat(map).as("Map的长度及键值测试").hasSize(3).containsKeys("x cA","B","C");
+        assertThat(map).as("Map的长度及键值测试").hasSize(3).containsKeys("A","B","C");
     }
 }

@@ -1,5 +1,6 @@
 package com.flamingo.junit5test;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static java.time.Duration.ofMillis;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author flamingo
  * @create 7/6/21 11:19 PM
  */
+@DisplayName("断言测试示例")
 public class Assert {
     @Test
     void standardAssertions() {
